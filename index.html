@@ -13,7 +13,6 @@
   html{color-scheme:light dark}
   body{margin:0}
   img{max-width:100%}
-  [hidden]{display:none!important}
   .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px 18px 0;font-size:.86rem}
   .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;border:1.5px solid currentColor;font-weight:700}
   .navbar a.on{background:currentColor}
@@ -401,7 +400,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
       <div class="route">
         <span class="stop key">那霸機場</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="stop">取車</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="stop">恩納村晚餐</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">Steakhouse 88</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="stop">超市</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="stop key">星野 BEB5</span>
       </div>
@@ -416,9 +415,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
         <li><span class="ico ico--ai"><svg><use href="#i-car"/></svg></span>
           <div class="d"><p class="hd"><span class="t">16:00</span>取車（2 台）→ 開往恩納村</p></div></li>
         <li><span class="ico"><svg><use href="#i-steak"/></svg></span>
-          <div class="d"><p class="hd"><span class="t">18:30</span>晚餐：Emerald</p>
-          <p class="cuisine">美式鐵板牛排・洋食</p>
-          <p class="about">當地人愛去的餐廳。若沒開或 7 人坐不下 → 改去 Steakhouse 88 恩納店，免預約、份量豪邁、離飯店很近。</p></div></li>
+          <div class="d"><p class="hd"><span class="t">18:30</span>晚餐：Steakhouse 88 恩納店</p>
+          <p class="cuisine">美式鐵板牛排・沖繩連鎖</p>
+          <p class="about">沖繩知名的鐵板牛排連鎖，<b>免預約、座位多、11:00–22:00 全年無休</b>，就在恩納村前兼久，離飯店很近。所有牛排都已含湯、沙拉與白飯。<br>⚠️ <b>原本排的「Emerald」已查證確認不存在</b>——恩納村沒有這間餐廳（同名的是民宿，或在北中城村、離這裡 40 分鐘車程），因此改由原備案接手。</p></div></li>
         <li><span class="ico ico--ki"><svg><use href="#i-cart"/></svg></span>
           <div class="d"><p class="hd"><span class="t">20:30</span>超市採買</p>
           <p class="about">買日本當季草莓、水果、飲料當消夜。</p></div></li>
@@ -627,7 +626,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
       <li><span class="box"></span><div><b>租車 2 台</b><small>過年是旺季，要盡快訂。現場記得加保免責補償（CDW＋NOC），每位要開車的人都要登記在契約上。</small></div></li>
       <li><span class="box"></span><div><b>旅遊平安險</b><small>跟威豪保險員買。一定要含「海外突發疾病醫療」，並主動告知是租車自駕。</small></div></li>
       <li><span class="box"></span><div><b>eSIM 網路卡（6 人份）</b><small>大姊在日本有門號不用買。<b>要在台灣連 Wi-Fi 時先裝好</b>，落地後沒網路就掃不了 QR Code。</small></div></li>
-      <li><span class="box"></span><div><b>餐廳訂位</b><small>Day 2 百年古家 大家、Day 3 來客夢燒肉、<b>Day 4 除夕 四つ竹 久米店（7 人 2F 個室）</b>。</small></div></li>
+      <li><span class="box"></span><div><b>餐廳訂位</b><small>Day 2 百年古家 大家、Day 3 來客夢燒肉、<b>Day 4 除夕 四つ竹 久米店（7 人 2F 個室）</b>。Day 1 Steakhouse 88 免預約。</small></div></li>
       <li><span class="box"></span><div><b>跟民宿確認</b><small>19:45 才會到、鑰匙怎麼拿、能不能停 2 台車。</small></div></li>
     </ul>
   </section>
@@ -654,7 +653,6 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
 
 </div>
 
-
 <style>
 .mapl{
   display:inline-flex;align-items:center;gap:3px;
@@ -665,6 +663,14 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
 }
 .mapl:hover,.mapl:focus{background:var(--shu);color:#fff;border-color:var(--shu)}
 .mapl:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+.pricetag{
+  display:block;margin:4px 0 0;padding:5px 9px;
+  background:var(--surface-2);border-left:3px solid var(--ki);
+  font-size:.79rem;line-height:1.5;
+}
+.pricetag b{color:var(--ki);font-weight:700}
+.pricetag .pv{font-family:"DM Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.pricetag .pn{display:block;color:var(--ink-soft);font-size:.75rem;margin-top:1px}
 .mapnote{
   margin:18px 0 0;padding:12px 14px;background:var(--surface-2);
   font-size:.84rem;line-height:1.62;border-left:3px solid var(--ai);
@@ -673,41 +679,85 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
 
 <script>
 (function(){
-  /* 地點對照表：左＝頁面上的文字片段，右＝丟給 Google 地圖的查詢字串。
-     有查證過日文地址的用地址（最準），其餘用日文正式名稱。
-     某個連結不準時，只要改右邊那串即可。 */
+  /* ── 地點對照表（已依查證結果修正）──
+     左＝頁面文字片段，右＝Google 地圖查詢字串。
+     連鎖店與範圍過大的地點一律改用完整日文地址。 */
   var PLACES = [
     ["大姊自大阪抵達",    "那覇空港国内線旅客ターミナル"],
     ["Potama",           "那覇空港国内線旅客ターミナル"],
-    ["晚餐：Emerald",     "エメラルド 恩納村"],
+    ["Steakhouse 88",    "沖縄県国頭郡恩納村字前兼久167-2"],
     ["星野 BEB5",         "BEB5沖縄瀬良垣"],
     ["BEB5 沖繩瀬良垣",   "BEB5沖縄瀬良垣"],
-    ["許田休息站",        "道の駅許田"],
+    ["許田休息站",        "沖縄県名護市字許田17-1"],
     ["賞櫻",              "今帰仁城跡"],
-    ["古宇利島",          "古宇利島"],
+    ["古宇利島",          "沖縄県国頭郡今帰仁村字古宇利297"],
     ["古宇利海洋塔",      "古宇利オーシャンタワー"],
     ["美麗海水族館",      "沖縄美ら海水族館"],
-    ["百年古家 大家",     "百年古家 大家"],
+    ["百年古家 大家",     "沖縄県名護市中山90"],
     ["A&W 美浜店",        "沖縄県中頭郡北谷町美浜2-5-5"],
     ["回転寿司市場",      "沖縄県中頭郡北谷町美浜2-4-5"],
-    ["美國村",            "美浜アメリカンビレッジ"],
+    ["美國村",            "沖縄県中頭郡北谷町美浜9-1"],
     ["AEON 來客夢",       "イオンモール沖縄ライカム"],
     ["來客夢",            "イオンモール沖縄ライカム"],
     ["焼肉なべしま",      "イオンモール沖縄ライカム"],
     ["那覇の宿 休日",     "沖縄県那覇市松山1-24-1"],
     ["首里城",            "首里城公園"],
-    ["西來院",            "西来院 達磨寺 那覇市首里"],
-    ["沖繩世界",          "おきなわワールド文化王国 玉泉洞"],
+    ["西來院",            "沖縄県那覇市首里赤田町1-5-1"],
+    ["沖繩世界",          "沖縄県南城市玉城字前川1336"],
     ["瀨長島",            "瀬長島ウミカジテラス"],
-    ["國際通",            "国際通り 那覇"],
+    ["國際通",            "沖縄県那覇市牧志3-2-10"],
     ["四つ竹 久米店",     "沖縄県那覇市久米2-22-1"],
     ["牧志公設市場",      "沖縄県那覇市松尾2-10-1"],
     ["波上宮",            "波上宮"],
     ["沖宮",              "沖宮 那覇市奥武山町"],
     ["送大姊到機場",      "那覇空港国内線旅客ターミナル"],
     ["通堂",              "沖縄県那覇市金城5-4-6"],
-    ["AEON 那霸店",       "イオン那覇店"],
+    ["AEON 那霸店",       "沖縄県那覇市金城5-10-2"],
     ["機場報到",          "那覇空港"]
+  ];
+
+  /* ── 價格對照表（經獨立覆核）──
+     [文字片段, 價格主文, 補充說明] */
+  var PRICES = [
+    ["Steakhouse 88",
+     "晚餐約 ¥3,500〜5,000／人",
+     "赤肉牛排 100g ¥2,838、菲力 100g ¥3,080、漢堡排 ¥1,848、兒童餐 ¥660。皆為稅入且已含湯、沙拉、白飯。免預約、11:00–22:00 全年無休"],
+    ["Potama",
+     "1 顆 ¥450 起，人均 ¥450〜999",
+     "那霸機場國內線 1F 到達口 B 旁・7:00–21:00 全年無休"],
+    ["許田休息站",
+     "點心約 ¥300〜600／人",
+     "天婦羅、開口笑等單顆百元起，人均不超過 ¥999"],
+    ["古宇利島",
+     "海膽丼類 ¥3,000〜5,000／人；一般定食 ¥800〜1,800",
+     "錦屋：海鮮丼 ¥2,500、海膽丼 ¥3,000〜3,500、塔可飯 ¥1,000｜しらさ：海膽丼約 ¥3,000、炒飯類 ¥800〜1,800｜Airando：主餐含稅 ¥3,550〜3,900，加飲料約 ¥4,300〜5,500"],
+    ["蝦蝦飯",
+     "一份 ¥1,500〜1,600",
+     "牛肉 combo ¥2,280〜2,380、加薯條 ¥530。7 人分食 1〜2 份即可"],
+    ["百年古家 大家",
+     "晚餐約 ¥4,900〜6,500／人",
+     "特選阿古豬涮涮鍋 ¥4,880（2 人份起）、極上 ¥6,480（晚餐限定・人氣第一）。單人份 ¥4,350。午餐麵類僅 ¥1,450〜1,550。全為稅入"],
+    ["A&W 美浜店",
+     "人均 ¥800〜1,500",
+     "只是嚐鮮分食的話，1〜2 份漢堡＋飲料 7 人分攤每人不到 ¥300"],
+    ["回転寿司市場",
+     "午餐約 ¥2,000〜3,000／人",
+     "小孩約 ¥1,000〜1,500。7 人抓 ¥15,000〜20,000"],
+    ["焼肉なべしま",
+     "吃到飽 ¥4,500／6,000／8,000（大人・稅入）",
+     "含軟性飲料喝到飽；加酒精 ¥5,200／6,700／8,700。小學生 ¥2,250 起、中高生 ¥4,000 起、未就學免費、65 歲以上一律減 ¥500。單點人均 ¥3,500〜6,000"],
+    ["沖繩世界",
+     "園內自助餐 大人 ¥1,980",
+     "小孩(6–11歲) ¥1,200、幼兒(4–5歲) ¥600，稅入無服務費。僅 11:00–15:00 供應（L.O. 14:30）"],
+    ["四つ竹 久米店",
+     "會席套餐 ¥6,600〜16,500／人（稅入）",
+     "⭐ ¥6,600 已含琉球舞踊鑑賞費。2F 個室費另計 ¥550／人；兒童餐 ¥1,500 或 ¥3,700（含舞踊）。加喝到飽 ¥1,650〜3,300。7 人估 ¥50,000〜60,000"],
+    ["牧志公設市場",
+     "代客料理約 ¥3,000〜4,500／人",
+     "只吃 2 樓食堂 ¥1,500〜2,999／人。⚠️ 若點伊勢海老、夜光貝等高級海鮮，可達 ¥8,000〜13,000／人，預算很難抓"],
+    ["通堂",
+     "拉麵 ¥880，人均 ¥880〜1,300",
+     "加溏心蛋、加麵或餃子約 ¥1,000〜1,300"]
   ];
 
   function mapUrl(q){
@@ -730,7 +780,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
     return s;
   }
 
-  function attach(el, q){
+  function attachMap(el, q){
     if (el.querySelector('.mapl')) return;
     var a = document.createElement('a');
     a.className = 'mapl';
@@ -743,23 +793,45 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
     el.appendChild(a);
   }
 
-  var sel = '.d .hd, .choice h4, .rows .row .val b';
-  var targets = document.querySelectorAll(sel);
+  var targets = document.querySelectorAll('.d .hd, .choice h4, .rows .row .val b');
   Array.prototype.forEach.call(targets, function(el){
     var txt = el.textContent;
     for (var i = 0; i < PLACES.length; i++){
-      if (txt.indexOf(PLACES[i][0]) !== -1){ attach(el, PLACES[i][1]); return; }
+      if (txt.indexOf(PLACES[i][0]) !== -1){ attachMap(el, PLACES[i][1]); return; }
     }
+  });
+
+  /* 價格標籤：行程項目掛在 .d 容器；備案卡片掛在 .choice 容器 */
+  function addPrice(anchorText, box){
+    if (box.querySelector('.pricetag')) return;
+    for (var i = 0; i < PRICES.length; i++){
+      if (anchorText.indexOf(PRICES[i][0]) !== -1){
+        var p = document.createElement('p');
+        p.className = 'pricetag';
+        p.innerHTML = '\u{1F4B0} <b>' + PRICES[i][1] + '</b><span class="pn">' + PRICES[i][2] + '</span>';
+        box.appendChild(p);
+        return;
+      }
+    }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.d .hd'), function(hd){
+    addPrice(hd.textContent, hd.parentNode);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.choice h4'), function(h){
+    var card = h.closest('.choice');
+    if (card) addPrice(h.textContent, card);
   });
 
   var secs = document.querySelectorAll('section');
   if (secs.length){
     var n = document.createElement('p');
     n.className = 'mapnote';
-    n.innerHTML = '\u{1F4CD} <b>地圖按鈕</b>：點行程旁的「地圖」會用 Google 地圖搜尋該地點，' +
-                  '確認位置後再自行按「路線」開始導航。<br>' +
-                  '⚠️ 出發前請抽查幾個重要地點，尤其是連鎖店（A&amp;W、AEON）' +
-                  '與尚未查證地址的 <b>Emerald</b>。';
+    n.innerHTML =
+      '\u{1F4CD} <b>地圖按鈕</b>：用 Google 地圖搜尋該地點，確認位置後再自行按「路線」導航。' +
+      '連鎖店與範圍較大的地點（美國村、國際通、AEON）已改用完整日文地址，避免定位到錯誤分店或整個區域。<br>' +
+      '\u{1F4B0} <b>價格</b>：每筆皆經過「查證 → 獨立覆核」兩道程序，來源為食べログ、ホットペッパー、ぐるなび與店家官網。' +
+      '未特別註明者均為<b>稅入價</b>，日本餐廳一般不另收服務費。<br>' +
+      '⚠️ <b>價格會變動</b>：查證期間發現多家店近年連續調漲，出發前請以店家官網或現場為準。';
     secs[secs.length - 1].appendChild(n);
   }
 })();
