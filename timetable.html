@@ -14,12 +14,10 @@
   body{margin:0}
   img{max-width:100%}
   [hidden]{display:none!important}
-  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
-    padding:14px 18px 0;font-size:.86rem}
-  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;
-    border:1.5px solid currentColor;font-weight:700}
+  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px 18px 0;font-size:.86rem}
+  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;border:1.5px solid currentColor;font-weight:700}
   .navbar a.on{background:currentColor}
-  .navbar a.on span{color:#fff;mix-blend-mode:normal}
+  .navbar a.on span{color:#fff}
 </style>
 </head>
 <body>
@@ -167,6 +165,8 @@ symbol .fill{fill:currentColor;stroke:none}
   font-weight:700;letter-spacing:.05em}
 .leg{display:grid;gap:7px;margin:0;padding:0;list-style:none;font-size:.82rem}
 .leg li{display:flex;align-items:center;gap:8px}
+.leg--b li{display:block}
+.leg--b li small{display:block;font-size:.74rem;opacity:.82;line-height:1.45;margin-top:1px;padding-left:1.25em}
 .memo{display:grid;gap:11px;margin-top:2px}
 .memo i{display:block;border-bottom:1px dashed var(--rule-strong);height:1px}
 
@@ -411,12 +411,12 @@ symbol .fill{fill:currentColor;stroke:none}
       </div>
       <div class="card">
         <h3>還沒辦的事</h3>
-        <ul class="leg">
+        <ul class="leg leg--b">
           <li>🪪 駕照日文譯本（最急）</li>
           <li>🚗 租車 2 台</li>
           <li>🛡️ 旅平險</li>
           <li>📱 eSIM 網卡</li>
-          <li>🍽️ 餐廳訂位<br>大家 Ufuya・來客夢燒肉<br><b>四つ竹 久米店（除夕）</b></li>
+          <li>🍽️ 餐廳訂位<small>大家 Ufuya ・ 來客夢燒肉<br><b>四つ竹 久米店（除夕）</b></small></li>
         </ul>
       </div>
       <div class="card">
