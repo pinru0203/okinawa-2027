@@ -14,12 +14,10 @@
   body{margin:0}
   img{max-width:100%}
   [hidden]{display:none!important}
-  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
-    padding:14px 18px 0;font-size:.86rem}
-  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;
-    border:1.5px solid currentColor;font-weight:700}
+  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:14px 18px 0;font-size:.86rem}
+  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;border:1.5px solid currentColor;font-weight:700}
   .navbar a.on{background:currentColor}
-  .navbar a.on span{color:#fff;mix-blend-mode:normal}
+  .navbar a.on span{color:#fff}
 </style>
 </head>
 <body>
@@ -655,5 +653,116 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
   </footer>
 
 </div>
+
+
+<style>
+.mapl{
+  display:inline-flex;align-items:center;gap:3px;
+  margin-left:7px;padding:1px 7px;border-radius:3px;
+  font-size:.7rem;font-weight:700;letter-spacing:.02em;
+  background:var(--wash);color:var(--shu);text-decoration:none;
+  border:1px solid var(--rule-strong);vertical-align:2px;white-space:nowrap;
+}
+.mapl:hover,.mapl:focus{background:var(--shu);color:#fff;border-color:var(--shu)}
+.mapl:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+.mapnote{
+  margin:18px 0 0;padding:12px 14px;background:var(--surface-2);
+  font-size:.84rem;line-height:1.62;border-left:3px solid var(--ai);
+}
+</style>
+
+<script>
+(function(){
+  /* 地點對照表：左＝頁面上的文字片段，右＝丟給 Google 地圖的查詢字串。
+     有查證過日文地址的用地址（最準），其餘用日文正式名稱。
+     某個連結不準時，只要改右邊那串即可。 */
+  var PLACES = [
+    ["大姊自大阪抵達",    "那覇空港国内線旅客ターミナル"],
+    ["Potama",           "那覇空港国内線旅客ターミナル"],
+    ["晚餐：Emerald",     "エメラルド 恩納村"],
+    ["星野 BEB5",         "BEB5沖縄瀬良垣"],
+    ["BEB5 沖繩瀬良垣",   "BEB5沖縄瀬良垣"],
+    ["許田休息站",        "道の駅許田"],
+    ["賞櫻",              "今帰仁城跡"],
+    ["古宇利島",          "古宇利島"],
+    ["古宇利海洋塔",      "古宇利オーシャンタワー"],
+    ["美麗海水族館",      "沖縄美ら海水族館"],
+    ["百年古家 大家",     "百年古家 大家"],
+    ["A&W 美浜店",        "沖縄県中頭郡北谷町美浜2-5-5"],
+    ["回転寿司市場",      "沖縄県中頭郡北谷町美浜2-4-5"],
+    ["美國村",            "美浜アメリカンビレッジ"],
+    ["AEON 來客夢",       "イオンモール沖縄ライカム"],
+    ["來客夢",            "イオンモール沖縄ライカム"],
+    ["焼肉なべしま",      "イオンモール沖縄ライカム"],
+    ["那覇の宿 休日",     "沖縄県那覇市松山1-24-1"],
+    ["首里城",            "首里城公園"],
+    ["西來院",            "西来院 達磨寺 那覇市首里"],
+    ["沖繩世界",          "おきなわワールド文化王国 玉泉洞"],
+    ["瀨長島",            "瀬長島ウミカジテラス"],
+    ["國際通",            "国際通り 那覇"],
+    ["四つ竹 久米店",     "沖縄県那覇市久米2-22-1"],
+    ["牧志公設市場",      "沖縄県那覇市松尾2-10-1"],
+    ["波上宮",            "波上宮"],
+    ["沖宮",              "沖宮 那覇市奥武山町"],
+    ["送大姊到機場",      "那覇空港国内線旅客ターミナル"],
+    ["通堂",              "沖縄県那覇市金城5-4-6"],
+    ["AEON 那霸店",       "イオン那覇店"],
+    ["機場報到",          "那覇空港"]
+  ];
+
+  function mapUrl(q){
+    return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  }
+
+  var NS = 'http://www.w3.org/2000/svg';
+  function pinIcon(){
+    var s = document.createElementNS(NS,'svg');
+    s.setAttribute('viewBox','0 0 24 24');
+    s.setAttribute('width','11'); s.setAttribute('height','11');
+    s.setAttribute('aria-hidden','true');
+    var p = document.createElementNS(NS,'path');
+    p.setAttribute('d','M12 22s7.5-7 7.5-12.5A7.5 7.5 0 0 0 4.5 9.5C4.5 15 12 22 12 22z');
+    p.setAttribute('fill','none'); p.setAttribute('stroke','currentColor'); p.setAttribute('stroke-width','2');
+    var c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx','12'); c.setAttribute('cy','9.5'); c.setAttribute('r','2.6');
+    c.setAttribute('fill','none'); c.setAttribute('stroke','currentColor'); c.setAttribute('stroke-width','2');
+    s.appendChild(p); s.appendChild(c);
+    return s;
+  }
+
+  function attach(el, q){
+    if (el.querySelector('.mapl')) return;
+    var a = document.createElement('a');
+    a.className = 'mapl';
+    a.href = mapUrl(q);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = '在 Google 地圖搜尋：' + q;
+    a.appendChild(pinIcon());
+    a.appendChild(document.createTextNode('地圖'));
+    el.appendChild(a);
+  }
+
+  var sel = '.d .hd, .choice h4, .rows .row .val b';
+  var targets = document.querySelectorAll(sel);
+  Array.prototype.forEach.call(targets, function(el){
+    var txt = el.textContent;
+    for (var i = 0; i < PLACES.length; i++){
+      if (txt.indexOf(PLACES[i][0]) !== -1){ attach(el, PLACES[i][1]); return; }
+    }
+  });
+
+  var secs = document.querySelectorAll('section');
+  if (secs.length){
+    var n = document.createElement('p');
+    n.className = 'mapnote';
+    n.innerHTML = '\u{1F4CD} <b>地圖按鈕</b>：點行程旁的「地圖」會用 Google 地圖搜尋該地點，' +
+                  '確認位置後再自行按「路線」開始導航。<br>' +
+                  '⚠️ 出發前請抽查幾個重要地點，尤其是連鎖店（A&amp;W、AEON）' +
+                  '與尚未查證地址的 <b>Emerald</b>。';
+    secs[secs.length - 1].appendChild(n);
+  }
+})();
+</script>
 </body>
 </html>
