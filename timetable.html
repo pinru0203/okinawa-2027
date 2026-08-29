@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>嫩鴨霸行程時間表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+    padding:14px 18px 0;font-size:.86rem}
+  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;
+    border:1.5px solid currentColor;font-weight:700}
+  .navbar a.on{background:currentColor}
+  .navbar a.on span{color:#fff;mix-blend-mode:normal}
+</style>
+</head>
+<body>
+<nav class="navbar" style="color:#C63A25"><a href="index.html">圖文行程</a><a href="timetable.html" class="on"><span>時間表</span></a></nav>
+
+<style>
+:root{
+  --bg:#FDFAF4; --surface:#FFFFFF; --surface-2:#F7F2E8;
+  --ink:#241C1A; --ink-soft:#665952; --ink-faint:#9C8D85;
+  --rule:#E8DFD2; --rule-strong:#D3C3AC;
+  --shu:#C63A25;
+
+  --d1-bg:#EAF1F9; --d1-bd:#A9C2E0; --d1-tx:#1E4677;
+  --d2-bg:#E4F2EF; --d2-bd:#9BCBC5; --d2-tx:#1F6E69;
+  --d3-bg:#FBF1DD; --d3-bd:#E4C88C; --d3-tx:#8B5A08;
+  --d4-bg:#FBE8E4; --d4-bd:#E9B1A6; --d4-tx:#A32E1C;
+  --d5-bg:#F0EAF7; --d5-bd:#BFACD9; --d5-tx:#5C3E80;
+
+  --meal-bg:#FDEFDF; --meal-bd:#EFC79A; --meal-tx:#95591A;
+  --stay-bg:#F1EEE8; --stay-bd:#CFC5B4; --stay-tx:#5E5348;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17121A; --surface:#211A22; --surface-2:#2A2129;
+    --ink:#F3E9DF; --ink-soft:#B3A29C; --ink-faint:#8A7A76;
+    --rule:#3A2E37; --rule-strong:#4E3E48;
+    --shu:#F4644B;
+    --d1-bg:#1B2735; --d1-bd:#3D5C80; --d1-tx:#9CC2EC;
+    --d2-bg:#152B2A; --d2-bd:#356460; --d2-tx:#84CFC8;
+    --d3-bg:#2E2515; --d3-bd:#6B5320; --d3-tx:#E8BF6B;
+    --d4-bg:#331C18; --d4-bd:#79392C; --d4-tx:#F2937C;
+    --d5-bg:#251E33; --d5-bd:#54406F; --d5-tx:#BFA3E0;
+    --meal-bg:#31251A; --meal-bd:#725333; --meal-tx:#E8B37A;
+    --stay-bg:#262024; --stay-bd:#4B4148; --stay-tx:#B9ABA3;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17121A; --surface:#211A22; --surface-2:#2A2129;
+  --ink:#F3E9DF; --ink-soft:#B3A29C; --ink-faint:#8A7A76;
+  --rule:#3A2E37; --rule-strong:#4E3E48;
+  --shu:#F4644B;
+  --d1-bg:#1B2735; --d1-bd:#3D5C80; --d1-tx:#9CC2EC;
+  --d2-bg:#152B2A; --d2-bd:#356460; --d2-tx:#84CFC8;
+  --d3-bg:#2E2515; --d3-bd:#6B5320; --d3-tx:#E8BF6B;
+  --d4-bg:#331C18; --d4-bd:#79392C; --d4-tx:#F2937C;
+  --d5-bg:#251E33; --d5-bd:#54406F; --d5-tx:#BFA3E0;
+  --meal-bg:#31251A; --meal-bd:#725333; --meal-tx:#E8B37A;
+  --stay-bg:#262024; --stay-bd:#4B4148; --stay-tx:#B9ABA3;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 18px 46px}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+symbol path,symbol circle,symbol ellipse,symbol rect{
+  fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+symbol .fill{fill:currentColor;stroke:none}
+.i{width:15px;height:15px;flex:0 0 auto;display:block}
+.i svg{width:100%;height:100%;display:block}
+
+/* ── title ── */
+.top{text-align:center;margin-bottom:22px}
+.top .kick{font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--shu);margin:0 0 8px}
+.top h1{font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:clamp(1.6rem,4.6vw,2.3rem);margin:0 0 6px;letter-spacing:.04em}
+.top .meta{font-family:"DM Mono",ui-monospace,monospace;font-size:.84rem;
+  color:var(--ink-soft);margin:0;font-variant-numeric:tabular-nums}
+
+/* ── board ── */
+.board{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media(min-width:1080px){.board{grid-template-columns:1fr 156px}}
+
+.scroller{overflow-x:auto;padding-bottom:4px}
+.chart{
+  min-width:940px;
+  display:grid;
+  grid-template-columns:58px repeat(5,1fr);
+  /* minmax 讓格子可依內容長高，字永遠不會被裁掉 */
+  grid-template-rows:auto repeat(34,minmax(26px,auto));
+  gap:0 6px;
+}
+.hint{font-size:.76rem;color:var(--ink-faint);margin:7px 0 0;text-align:center}
+
+/* day headers */
+.dh{grid-row:1;border-radius:7px 7px 0 0;padding:8px 6px 7px;text-align:center;
+  border:1.5px solid;border-bottom:none;margin-bottom:2px}
+.dh .n{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.12rem;
+  line-height:1.1;display:block;letter-spacing:.04em}
+.dh .dt{font-family:"DM Mono",ui-monospace,monospace;font-size:.66rem;
+  letter-spacing:.07em;opacity:.85;display:block;margin-top:1px}
+.dh .th{font-size:.74rem;font-weight:700;display:block;margin-top:3px;opacity:.92}
+
+/* time column */
+.tc{grid-column:1;font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
+  color:var(--ink-faint);text-align:right;padding-right:8px;
+  border-top:1px solid var(--rule);font-variant-numeric:tabular-nums;
+  line-height:1.1;padding-top:2px}
+.tch{grid-column:1;grid-row:1;font-size:.7rem;color:var(--ink-faint);
+  text-align:right;padding:0 8px 6px 0;align-self:end;letter-spacing:.08em}
+
+/* day background lanes */
+.lane{grid-row:2 / 36;border-radius:0 0 7px 7px;border:1.5px solid;border-top:none}
+
+/* blocks */
+.blk{
+  border:1.4px solid;border-radius:5px;padding:5px 7px;margin:1px 3px;
+  font-size:.79rem;line-height:1.35;
+  display:flex;flex-direction:column;justify-content:center;gap:2px;
+  position:relative;z-index:2;min-width:0;
+}
+.blk .r{display:flex;align-items:flex-start;gap:5px}
+.blk .r .i{margin-top:2px}
+.blk b{font-weight:700;font-size:.82rem;min-width:0}
+.blk .tm{font-family:"DM Mono",ui-monospace,monospace;font-size:.67rem;
+  opacity:.78;letter-spacing:.01em;font-variant-numeric:tabular-nums;line-height:1.3}
+.blk small{font-size:.71rem;opacity:.82;line-height:1.34;display:block}
+.blk.big b{font-size:.92rem}
+/* 單格短行程：只顯示一行，不再擠時間列 */
+.blk.oneline{justify-content:center;padding:3px 7px}
+.blk.oneline b{font-size:.78rem}
+
+.c1{grid-column:2}.c2{grid-column:3}.c3{grid-column:4}.c4{grid-column:5}.c5{grid-column:6}
+.d1{background:var(--d1-bg);border-color:var(--d1-bd);color:var(--d1-tx)}
+.d2{background:var(--d2-bg);border-color:var(--d2-bd);color:var(--d2-tx)}
+.d3{background:var(--d3-bg);border-color:var(--d3-bd);color:var(--d3-tx)}
+.d4{background:var(--d4-bg);border-color:var(--d4-bd);color:var(--d4-tx)}
+.d5{background:var(--d5-bg);border-color:var(--d5-bd);color:var(--d5-tx)}
+.meal{background:var(--meal-bg)!important;border-color:var(--meal-bd)!important;color:var(--meal-tx)!important}
+.stay{background:var(--stay-bg)!important;border-color:var(--stay-bd)!important;color:var(--stay-tx)!important}
+
+/* sidebar */
+.side{display:grid;gap:14px}
+@media(max-width:1079px){.side{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.side{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1.5px solid var(--rule-strong);
+  border-radius:8px;padding:13px 14px}
+.card h3{font-family:"Noto Serif TC",serif;font-size:.92rem;margin:0 0 9px;
+  font-weight:700;letter-spacing:.05em}
+.leg{display:grid;gap:7px;margin:0;padding:0;list-style:none;font-size:.82rem}
+.leg li{display:flex;align-items:center;gap:8px}
+.memo{display:grid;gap:11px;margin-top:2px}
+.memo i{display:block;border-bottom:1px dashed var(--rule-strong);height:1px}
+
+/* footer bar */
+.bar{margin-top:22px;background:var(--surface-2);border:1.5px solid var(--rule-strong);
+  border-radius:999px;padding:10px 20px;display:flex;flex-wrap:wrap;
+  align-items:center;justify-content:center;gap:6px 18px;font-size:.83rem}
+.bar .pill{background:var(--shu);color:#fff;font-weight:700;font-size:.76rem;
+  padding:2px 12px;border-radius:999px;letter-spacing:.05em}
+.bar span.dot{color:var(--rule-strong)}
+</style>
+
+<svg class="sprite" aria-hidden="true"><defs>
+  <symbol id="s-plane" viewBox="0 0 24 24"><path d="M22 4L3 12l6.4 2.4L12 21l3-6 7-11z"/></symbol>
+  <symbol id="s-car" viewBox="0 0 24 24"><path d="M3 16v-3l2.4-5.5h13.2L21 13v3M3 16h18"/><circle cx="7.5" cy="17" r="1.9"/><circle cx="16.5" cy="17" r="1.9"/></symbol>
+  <symbol id="s-torii" viewBox="0 0 24 24"><path d="M3 6.5h18M4.5 10h15M7 6.5v14M17 6.5v14"/></symbol>
+  <symbol id="s-bag" viewBox="0 0 24 24"><path d="M4.5 8h15l-1.5 13h-12L4.5 8z"/><path d="M8.5 8V6a3.5 3.5 0 017 0v2"/></symbol>
+  <symbol id="s-food" viewBox="0 0 24 24"><path d="M3 11h18c0 5-4 8.5-9 8.5S3 16 3 11z"/><path d="M1.5 11h21"/><path d="M7 8l5-3.5M10 8.4l5-3.5"/></symbol>
+  <symbol id="s-bed" viewBox="0 0 24 24"><path d="M3 19V8M3 12h18v7M21 19v-3"/><path d="M6.5 12V9.5h4.5V12"/></symbol>
+  <symbol id="s-castle" viewBox="0 0 24 24"><path d="M2.5 10L12 4.5 21.5 10"/><path d="M5 10v10h14V10"/><path d="M4 14.5h16"/><path d="M10 20v-3.5h4V20"/></symbol>
+  <symbol id="s-fish" viewBox="0 0 24 24"><path d="M2 12c3-4.5 8.5-6 13-4 2.5 1.1 4.5 2.8 6 4-1.5 1.2-3.5 2.9-6 4-4.5 2-10 .5-13-4z"/><circle class="fill" cx="15.5" cy="10.5" r="1"/></symbol>
+  <symbol id="s-cave" viewBox="0 0 24 24"><path d="M2.5 4.5h19v3c-1.6 0-1.5 5-3.2 5s-1.5-3-3.2-3-1.5 6-3.3 6-1.5-4.5-3.2-4.5S7.1 12 5.5 12 4 7.5 2.5 7.5v-3z"/><path d="M6.5 20.5c1.5-2.6 3-2.6 4.5 0M14 20.5c1.5-3.4 3-3.4 4.5 0"/></symbol>
+  <symbol id="s-sakura" viewBox="0 0 24 24"><circle class="fill" cx="12" cy="6.4" r="3.1"/><circle class="fill" cx="17.6" cy="10.4" r="3.1"/><circle class="fill" cx="15.4" cy="17" r="3.1"/><circle class="fill" cx="8.6" cy="17" r="3.1"/><circle class="fill" cx="6.4" cy="10.4" r="3.1"/></symbol>
+  <symbol id="s-tower" viewBox="0 0 24 24"><path d="M12 20V6.5"/><path d="M7 11l5-5 5 5"/><rect x="8.5" y="11" width="7" height="5.5" rx=".8"/><path d="M8.5 20h7"/></symbol>
+  <symbol id="s-cart" viewBox="0 0 24 24"><path d="M2 4h3l2.8 11h10.5L21 6.5H6"/><circle cx="9" cy="19.5" r="1.6"/><circle cx="17.5" cy="19.5" r="1.6"/></symbol>
+  <symbol id="s-cat" viewBox="0 0 24 24"><path d="M6 11.5L4.2 5l4.8 2.5M18 11.5L19.8 5 15 7.5"/><path d="M4 14.5C4 9.8 7.6 6.5 12 6.5s8 3.3 8 8-3.6 6.8-8 6.8-8-2.1-8-6.8z"/><circle class="fill" cx="9" cy="13.8" r="1"/><circle class="fill" cx="15" cy="13.8" r="1"/></symbol>
+  <symbol id="s-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></symbol>
+  <symbol id="s-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M2 9h20M12 9v12"/><path d="M12 9c-1-3-3-4.5-4.5-3.5S7 9 12 9zM12 9c1-3 3-4.5 4.5-3.5S17 9 12 9z"/></symbol>
+  <symbol id="s-ship" viewBox="0 0 24 24"><path d="M3 15h18l-2.5 5.5h-13L3 15z"/><path d="M6 15V8h12v7M12 8V4.5"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+
+  <div class="top">
+    <p class="kick">Okinawa · Lunar New Year 2027</p>
+    <h1>嫩鴨霸家族旅遊 · 沖繩 5 天 4 夜</h1>
+    <p class="meta">2027 / 02 / 02 (二) — 02 / 06 (六)　·　7 人　·　2 台租車自駕</p>
+  </div>
+
+  <div class="board">
+    <div>
+      <div class="scroller">
+        <div class="chart">
+
+          <div class="tch">時間</div>
+          <div class="tc" style="grid-row:2/4">07:00</div>
+          <div class="tc" style="grid-row:4/6">08:00</div>
+          <div class="tc" style="grid-row:6/8">09:00</div>
+          <div class="tc" style="grid-row:8/10">10:00</div>
+          <div class="tc" style="grid-row:10/12">11:00</div>
+          <div class="tc" style="grid-row:12/14">12:00</div>
+          <div class="tc" style="grid-row:14/16">13:00</div>
+          <div class="tc" style="grid-row:16/18">14:00</div>
+          <div class="tc" style="grid-row:18/20">15:00</div>
+          <div class="tc" style="grid-row:20/22">16:00</div>
+          <div class="tc" style="grid-row:22/24">17:00</div>
+          <div class="tc" style="grid-row:24/26">18:00</div>
+          <div class="tc" style="grid-row:26/28">19:00</div>
+          <div class="tc" style="grid-row:28/30">20:00</div>
+          <div class="tc" style="grid-row:30/32">21:00</div>
+          <div class="tc" style="grid-row:32/34">22:00</div>
+          <div class="tc" style="grid-row:34/36">23:00</div>
+
+          <!-- headers -->
+          <div class="dh c1 d1"><span class="n">DAY 1</span><span class="dt">2/2 TUE</span><span class="th">抵達沖繩・恩納村</span></div>
+          <div class="dh c2 d2"><span class="n">DAY 2</span><span class="dt">2/3 WED</span><span class="th">北部・美麗海水族館</span></div>
+          <div class="dh c3 d3"><span class="n">DAY 3</span><span class="dt">2/4 THU</span><span class="th">美國村・來客夢購物</span></div>
+          <div class="dh c4 d4"><span class="n">DAY 4</span><span class="dt">2/5 FRI · 除夕</span><span class="th">首里城・年夜飯</span></div>
+          <div class="dh c5 d5"><span class="n">DAY 5</span><span class="dt">2/6 SAT · 初一</span><span class="th">神社祈福・回台灣</span></div>
+
+          <!-- lanes -->
+          <div class="lane c1 d1"></div>
+          <div class="lane c2 d2"></div>
+          <div class="lane c3 d3"></div>
+          <div class="lane c4 d4"></div>
+          <div class="lane c5 d5"></div>
+
+          <!-- ── DAY 1 ── -->
+          <div class="blk c1 d1" style="grid-row:7/12">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>高雄小港機場</b></div>
+            <span class="tm">09:30 到機場 · 出境</span></div>
+          <div class="blk c1 d1 big" style="grid-row:12/17">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>起飛 → 那霸</b></div>
+            <span class="tm">12:00 — 14:40</span>
+            <small>大姊 14:05 自大阪抵國內線，機場會合</small></div>
+          <div class="blk c1 d1" style="grid-row:17/19">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>出關 · 兩航廈會合</b></div>
+            <span class="tm">14:40 — 15:30</span></div>
+          <div class="blk c1 meal" style="grid-row:19/20">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>Potama 豬肉蛋飯糰</b></div>
+            <span class="tm">15:30 國內線・或超商飯糰</span></div>
+          <div class="blk c1 d1" style="grid-row:20/22">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>接駁 · 取車 2 台</b></div>
+            <span class="tm">16:00 — 17:15</span></div>
+          <div class="blk c1 d1" style="grid-row:22/25">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>開往中部恩納村</b></div>
+            <span class="tm">17:15 — 18:30 車上吃飯糰</span></div>
+          <div class="blk c1 meal" style="grid-row:25/29">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>晚餐 Emerald</b></div>
+            <span class="tm">18:30 — 20:15</span>
+            <small>備案 Steakhouse 88</small></div>
+          <div class="blk c1 d1" style="grid-row:29/31">
+            <div class="r"><span class="i"><svg><use href="#s-cart"/></svg></span><b>超市採買</b></div>
+            <span class="tm">20:30 水果 · 消夜</span></div>
+          <div class="blk c1 stay" style="grid-row:31/34">
+            <div class="r"><span class="i"><svg><use href="#s-bed"/></svg></span><b>星野 BEB5</b></div>
+            <span class="tm">21:45 Check-in</span></div>
+
+          <!-- ── DAY 2 ── -->
+          <div class="blk c2 meal" style="grid-row:3/5">
+            <div class="r"><span class="i"><svg><use href="#s-sun"/></svg></span><b>飯店早餐</b></div>
+            <span class="tm">07:30 — 08:30</span></div>
+          <div class="blk c2 d2 oneline" style="grid-row:5/6">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>08:45 出發</b></div></div>
+          <div class="blk c2 d2" style="grid-row:6/8">
+            <div class="r"><span class="i"><svg><use href="#s-cart"/></svg></span><b>許田休息站</b></div>
+            <span class="tm">09:15 買水族館優惠票</span></div>
+          <div class="blk c2 d2" style="grid-row:9/11">
+            <div class="r"><span class="i"><svg><use href="#s-sakura"/></svg></span><b>賞緋寒櫻</b></div>
+            <span class="tm">10:30 今歸仁城跡／八重岳</span></div>
+          <div class="blk c2 meal" style="grid-row:12/15">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>古宇利島午餐</b></div>
+            <span class="tm">12:00 — 13:30</span>
+            <small>錦屋／しらさ／Airando ＋ 蝦蝦飯</small></div>
+          <div class="blk c2 d2" style="grid-row:15/18">
+            <div class="r"><span class="i"><svg><use href="#s-tower"/></svg></span><b>古宇利海洋塔</b></div>
+            <span class="tm">13:30 — 15:00</span></div>
+          <div class="blk c2 d2 big" style="grid-row:19/24">
+            <div class="r"><span class="i"><svg><use href="#s-fish"/></svg></span><b>美麗海水族館</b></div>
+            <span class="tm">15:30 — 18:00</span>
+            <small>17:00 黑潮之海餵食秀</small></div>
+          <div class="blk c2 meal" style="grid-row:25/29">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>晚餐 百年古家 大家</b></div>
+            <span class="tm">18:45 — 20:15 阿古豬涮涮鍋</span></div>
+          <div class="blk c2 d2" style="grid-row:29/31">
+            <div class="r"><span class="i"><svg><use href="#s-cart"/></svg></span><b>超市／購物</b></div>
+            <span class="tm">20:15 累了可跳過</span></div>
+          <div class="blk c2 stay" style="grid-row:32/34">
+            <div class="r"><span class="i"><svg><use href="#s-bed"/></svg></span><b>回 BEB5</b></div>
+            <span class="tm">21:00 — 22:00</span></div>
+
+          <!-- ── DAY 3 ── -->
+          <div class="blk c3 meal oneline" style="grid-row:5/6">
+            <div class="r"><span class="i"><svg><use href="#s-sun"/></svg></span><b>08:30 房間早餐</b></div></div>
+          <div class="blk c3 d3" style="grid-row:7/9">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>退房 → 北谷</b></div>
+            <span class="tm">09:30 車程約 50 分</span></div>
+          <div class="blk c3 meal" style="grid-row:9/10">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>A&amp;W 嚐鮮</b></div>
+            <span class="tm">10:20 買 1~2 份分食</span></div>
+          <div class="blk c3 meal" style="grid-row:10/13">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>迴轉壽司（午餐）</b></div>
+            <span class="tm">11:00 開店就進去</span></div>
+          <div class="blk c3 d3" style="grid-row:13/15">
+            <div class="r"><span class="i"><svg><use href="#s-cat"/></svg></span><b>美國村・貓之道</b></div>
+            <span class="tm">12:15 — 13:15</span></div>
+          <div class="blk c3 d3 big" style="grid-row:15/23">
+            <div class="r"><span class="i"><svg><use href="#s-bag"/></svg></span><b>AEON 來客夢</b></div>
+            <span class="tm">13:35 — 17:15</span>
+            <small>先直奔寶可夢中心・沖繩最大商場</small></div>
+          <div class="blk c3 meal" style="grid-row:23/26">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>燒肉なべしま</b></div>
+            <span class="tm">17:30 — 19:00 來客夢 5F</span></div>
+          <div class="blk c3 stay" style="grid-row:27/29">
+            <div class="r"><span class="i"><svg><use href="#s-bed"/></svg></span><b>那覇の宿 休日</b></div>
+            <span class="tm">19:45 Check-in</span></div>
+
+          <!-- ── DAY 4 ── -->
+          <div class="blk c4 d4 oneline" style="grid-row:6/7">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>09:00 民宿出發</b></div></div>
+          <div class="blk c4 d4" style="grid-row:7/9">
+            <div class="r"><span class="i"><svg><use href="#s-castle"/></svg></span><b>首里城公園</b></div>
+            <span class="tm">09:20 — 10:45 新正殿</span></div>
+          <div class="blk c4 d4" style="grid-row:9/10">
+            <div class="r"><span class="i"><svg><use href="#s-torii"/></svg></span><b>西來院 達摩寺</b></div>
+            <span class="tm">10:45 祈福</span></div>
+          <div class="blk c4 d4 big" style="grid-row:12/17">
+            <div class="r"><span class="i"><svg><use href="#s-cave"/></svg></span><b>沖繩世界 ＋ 玉泉洞</b></div>
+            <span class="tm">12:00 — 14:30</span>
+            <small>鐘乳石洞・太鼓舞秀・園區內午餐</small></div>
+          <div class="blk c4 d4" style="grid-row:18/21">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>瀨長島</b></div>
+            <span class="tm">15:00 — 16:45 看飛機・可跳過</span></div>
+          <div class="blk c4 d4" style="grid-row:21/23">
+            <div class="r"><span class="i"><svg><use href="#s-bag"/></svg></span><b>國際通逛街 ①</b></div>
+            <span class="tm">16:20 — 17:45</span></div>
+          <div class="blk c4 meal big" style="grid-row:24/28">
+            <div class="r"><span class="i"><svg><use href="#s-gift"/></svg></span><b>🧧 除夕年夜飯</b></div>
+            <span class="tm">18:00 — 20:00　四つ竹 久米店</span>
+            <small>琉球宮廷料理・2F 個室・19:00 琉球舞踊</small></div>
+          <div class="blk c4 d4" style="grid-row:28/31">
+            <div class="r"><span class="i"><svg><use href="#s-bag"/></svg></span><b>國際通 ＋ 唐吉訶德 ②</b></div>
+            <span class="tm">20:00 — 21:15</span></div>
+          <div class="blk c4 stay" style="grid-row:31/33">
+            <div class="r"><span class="i"><svg><use href="#s-bed"/></svg></span><b>走回民宿</b></div>
+            <span class="tm">21:30</span></div>
+
+          <!-- ── DAY 5 ── -->
+          <div class="blk c5 d5 oneline" style="grid-row:5/6">
+            <div class="r"><span class="i"><svg><use href="#s-bed"/></svg></span><b>08:30 民宿退房</b></div></div>
+          <div class="blk c5 d5" style="grid-row:6/8">
+            <div class="r"><span class="i"><svg><use href="#s-torii"/></svg></span><b>波上宮</b></div>
+            <span class="tm">09:00 — 09:50 崖上神社</span></div>
+          <div class="blk c5 d5" style="grid-row:8/9">
+            <div class="r"><span class="i"><svg><use href="#s-torii"/></svg></span><b>沖宮</b></div>
+            <span class="tm">10:00 奧武山公園</span></div>
+          <div class="blk c5 d5" style="grid-row:9/10">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>送大姊搭機</b></div>
+            <span class="tm">10:45 她 12:20 飛大阪</span></div>
+          <div class="blk c5 meal" style="grid-row:10/12">
+            <div class="r"><span class="i"><svg><use href="#s-food"/></svg></span><b>通堂拉麵（午餐）</b></div>
+            <span class="tm">11:10 — 12:00 小禄本店</span></div>
+          <div class="blk c5 d5" style="grid-row:12/13">
+            <div class="r"><span class="i"><svg><use href="#s-cart"/></svg></span><b>AEON 最後補貨</b></div>
+            <span class="tm">12:05</span></div>
+          <div class="blk c5 d5" style="grid-row:13/15">
+            <div class="r"><span class="i"><svg><use href="#s-car"/></svg></span><b>還車 → 機場</b></div>
+            <span class="tm">12:45 — 13:30</span></div>
+          <div class="blk c5 d5" style="grid-row:15/19">
+            <div class="r"><span class="i"><svg><use href="#s-bag"/></svg></span><b>報到 · 逛免稅店</b></div>
+            <span class="tm">13:30 — 15:40</span>
+            <small>Royce・紅芋塔・泡盛</small></div>
+          <div class="blk c5 d5 big" style="grid-row:19/22">
+            <div class="r"><span class="i"><svg><use href="#s-plane"/></svg></span><b>起飛 → 高雄</b></div>
+            <span class="tm">15:40 — 16:30 落地</span></div>
+
+        </div>
+      </div>
+      <p class="hint">手機請左右滑動看完整表格　·　時間為預估，當天視狀況彈性調整</p>
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <h3>分類圖例</h3>
+        <ul class="leg">
+          <li><span class="i" style="color:var(--d1-tx)"><svg><use href="#s-plane"/></svg></span>交通・移動</li>
+          <li><span class="i" style="color:var(--d2-tx)"><svg><use href="#s-torii"/></svg></span>景點・參拜</li>
+          <li><span class="i" style="color:var(--d3-tx)"><svg><use href="#s-bag"/></svg></span>購物</li>
+          <li><span class="i" style="color:var(--meal-tx)"><svg><use href="#s-food"/></svg></span>美食（米色塊）</li>
+          <li><span class="i" style="color:var(--stay-tx)"><svg><use href="#s-bed"/></svg></span>住宿（灰色塊）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>還沒辦的事</h3>
+        <ul class="leg">
+          <li>🪪 駕照日文譯本（最急）</li>
+          <li>🚗 租車 2 台</li>
+          <li>🛡️ 旅平險</li>
+          <li>📱 eSIM 網卡</li>
+          <li>🍽️ 餐廳訂位<br>大家 Ufuya・來客夢燒肉<br><b>四つ竹 久米店（除夕）</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>MEMO</h3>
+        <div class="memo"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="bar">
+    <span class="pill">小提醒</span>
+    <span>2 月沖繩 14~20°C，風大要帶外套</span><span class="dot">·</span>
+    <span>市場小店多收現金，日幣先換好</span><span class="dot">·</span>
+    <span>豬肉製品不能帶回台灣</span><span class="dot">·</span>
+    <span>住宿每人約 NT$6,758，機票各自出</span>
+  </div>
+
+</div>
+</body>
+</html>

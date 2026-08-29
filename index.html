@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>嫩鴨霸家族旅遊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap">
+<style>
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+  .navbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+    padding:14px 18px 0;font-size:.86rem}
+  .navbar a{text-decoration:none;padding:6px 16px;border-radius:999px;
+    border:1.5px solid currentColor;font-weight:700}
+  .navbar a.on{background:currentColor}
+  .navbar a.on span{color:#fff;mix-blend-mode:normal}
+</style>
+</head>
+<body>
+<nav class="navbar" style="color:#C63A25"><a href="index.html" class="on"><span>圖文行程</span></a><a href="timetable.html">時間表</a></nav>
+
+<style>
+/* ── 琉球紅型 palette : 朱 · 黃 · 藍 · 櫻 ── */
+:root{
+  --bg:#FDFAF4; --surface:#FFFFFF; --surface-2:#F6F0E4;
+  --ink:#241C1A; --ink-soft:#6E605A; --ink-faint:#9A8B83;
+  --rule:#E6DBCA; --rule-strong:#D3C3AC;
+  --shu:#D8452F; --shu-ink:#FFFFFF; --ki:#D89216; --ai:#25518C; --sakura:#C4326B;
+  --wash:#FBEDE3;
+  --shadow:0 1px 2px rgba(60,40,30,.06), 0 8px 24px -12px rgba(60,40,30,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17121A; --surface:#211A22; --surface-2:#2A2129;
+    --ink:#F3E9DF; --ink-soft:#B3A29C; --ink-faint:#8A7A76;
+    --rule:#3A2E37; --rule-strong:#4E3E48;
+    --shu:#F4644B; --shu-ink:#1A1116; --ki:#F0B53E; --ai:#7BA5E6; --sakura:#EF6C9B;
+    --wash:#31212A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17121A; --surface:#211A22; --surface-2:#2A2129;
+  --ink:#F3E9DF; --ink-soft:#B3A29C; --ink-faint:#8A7A76;
+  --rule:#3A2E37; --rule-strong:#4E3E48;
+  --shu:#F4644B; --shu-ink:#1A1116; --ki:#F0B53E; --ai:#7BA5E6; --sakura:#EF6C9B;
+  --wash:#31212A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+.page{max-width:780px;margin:0 auto;padding:0 20px 72px}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ── icons ── */
+.ico{width:38px;height:38px;flex:0 0 auto;color:var(--shu)}
+.ico svg{width:100%;height:100%;display:block}
+.ico--ai{color:var(--ai)} .ico--ki{color:var(--ki)} .ico--sakura{color:var(--sakura)}
+symbol path,symbol circle,symbol ellipse,symbol rect,symbol line{
+  fill:none;stroke:currentColor;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+symbol .fill{fill:currentColor;stroke:none}
+
+/* ── header ── */
+.masthead{padding:44px 0 26px;text-align:center}
+.kicker{font-family:"DM Mono",ui-monospace,monospace;font-size:.72rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--shu);margin:0 0 16px}
+h1{font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:clamp(2rem,7.6vw,3.1rem);line-height:1.15;letter-spacing:.03em;
+  margin:0 0 10px;text-wrap:balance}
+.tagline{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.05rem;
+  color:var(--ink-soft);margin:0 0 14px;letter-spacing:.05em}
+.dateline{font-family:"DM Mono",ui-monospace,monospace;
+  font-size:clamp(.9rem,3.2vw,1.1rem);color:var(--ink-soft);margin:0;
+  font-variant-numeric:tabular-nums}
+.motif{display:block;width:100%;height:16px;margin:24px 0 0}
+.motif path,.motif circle{vector-effect:non-scaling-stroke}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin:26px 0 0}
+.fact{background:var(--surface);padding:15px 10px;text-align:center}
+.fact dt{font-size:.7rem;letter-spacing:.14em;color:var(--ink-faint);margin:0 0 3px;font-weight:500}
+.fact dd{margin:0;font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.25rem;line-height:1.2}
+.fact dd small{font-size:.72rem;font-family:"Noto Sans TC",sans-serif;font-weight:400;color:var(--ink-soft)}
+
+/* ── sections ── */
+section{margin-top:52px}
+h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.42rem;
+  margin:0 0 4px;letter-spacing:.03em}
+.sub{color:var(--ink-soft);font-size:.9rem;margin:0 0 20px}
+
+/* ── info rows ── */
+.rows{border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:82px 1fr;gap:14px;
+  padding:13px 2px;border-bottom:1px solid var(--rule);align-items:baseline}
+.row .lab{font-family:"DM Mono",ui-monospace,monospace;font-size:.78rem;
+  color:var(--ink-faint);letter-spacing:.04em}
+.row .val{margin:0}
+.row .val em{font-style:normal;color:var(--ink-soft);font-size:.86rem;display:block;margin-top:2px}
+.num{font-family:"DM Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.hi{color:var(--shu);font-weight:700}
+
+/* ── island map ── */
+.mapwrap{background:var(--surface);border:1px solid var(--rule);padding:14px 12px 12px;overflow-x:auto}
+.mapwrap svg{display:block;margin:0 auto;width:520px;height:auto}
+.scrollhint{font-size:.76rem;color:var(--ink-faint);margin:8px 0 0;text-align:center}
+.sea{fill:var(--ai);opacity:.06}
+.land{fill:var(--surface-2);stroke:var(--rule-strong);stroke-width:1.4;stroke-linejoin:round}
+.lead{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:2.5 2.5;fill:none}
+.map-t{font-family:"Noto Sans TC",sans-serif;font-size:12px;fill:var(--ink);font-weight:500}
+.map-d{font-family:"DM Mono",ui-monospace,monospace;font-size:9.5px;fill:var(--ink-faint)}
+.map-r{font-family:"Noto Serif TC",serif;font-size:13px;font-weight:700;opacity:.65}
+.map-n{font-family:"Noto Serif TC",serif;font-size:12px;font-weight:700;fill:var(--ink-faint)}
+.pin{stroke:var(--surface);stroke-width:2}
+.pin-h{fill:var(--surface);stroke-width:3.4}
+
+/* ── day blocks ── */
+.day{margin-top:44px;padding-top:26px;border-top:2px solid var(--rule-strong)}
+.dayhead{display:flex;gap:15px;align-items:flex-start;margin-bottom:16px}
+.stamp{flex:0 0 auto;width:52px;height:52px;background:var(--shu);color:var(--shu-ink);
+  display:grid;place-items:center;font-family:"Noto Serif TC",serif;font-weight:900;
+  font-size:1.6rem;line-height:1;border-radius:3px}
+.day--eve .stamp{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ki)}
+.daymeta{min-width:0}
+.daymeta h3{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.2rem;
+  margin:0 0 3px;line-height:1.35;text-wrap:balance}
+.daymeta .when{font-family:"DM Mono",ui-monospace,monospace;font-size:.8rem;
+  color:var(--ink-faint);letter-spacing:.05em;margin:0}
+.tag{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:2px;
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;
+  background:var(--shu);color:var(--shu-ink);transform:translateY(-2px)}
+.tag--ki{background:var(--ki);color:#241C1A}
+
+/* ── arrow route chain ── */
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:6px 5px;
+  background:var(--surface-2);padding:11px 13px;margin:0 0 18px;
+  font-size:.83rem;line-height:1.4}
+.route .stop{font-weight:500;white-space:nowrap}
+.route .stop.key{color:var(--shu);font-weight:700}
+.route .arw{width:15px;height:9px;flex:0 0 auto;color:var(--ink-faint);opacity:.8}
+.route .arw svg{width:100%;height:100%;display:block}
+
+/* ── plan list ── */
+ul.plan{list-style:none;margin:0;padding:0}
+ul.plan li{display:grid;grid-template-columns:38px 1fr;gap:13px;
+  padding:13px 0;border-bottom:1px dotted var(--rule);align-items:start}
+ul.plan li:last-child{border-bottom:none}
+.d{min-width:0}
+.d .hd{margin:0;font-weight:700;line-height:1.45}
+.d .t{font-family:"DM Mono",ui-monospace,monospace;font-size:.78rem;
+  font-variant-numeric:tabular-nums;color:var(--shu);
+  background:var(--wash);padding:1px 6px;border-radius:2px;margin-right:7px;
+  font-weight:500;white-space:nowrap}
+.d .cuisine{margin:3px 0 0;font-size:.8rem;color:var(--ki);font-weight:700;letter-spacing:.03em}
+.d p.about{margin:2px 0 0;font-size:.85rem;line-height:1.6;color:var(--ink-soft)}
+
+.note{margin-top:16px;padding:12px 14px;background:var(--wash);
+  border-left:3px solid var(--ki);font-size:.87rem;line-height:1.6}
+.note b{color:var(--ink)}
+
+/* ── choices ── */
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.choice{background:var(--surface);border:1px solid var(--rule-strong);
+  padding:18px 16px;box-shadow:var(--shadow)}
+.choice .chd{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.choice h4{font-family:"Noto Serif TC",serif;font-size:1.05rem;margin:0;font-weight:700}
+.choice .who{font-family:"DM Mono",ui-monospace,monospace;font-size:.7rem;
+  letter-spacing:.16em;color:var(--shu);margin:0}
+.choice ul{margin:0;padding-left:1.1em;font-size:.87rem;line-height:1.65}
+.choice li{margin-bottom:3px}
+.choice li::marker{color:var(--ink-faint)}
+
+/* ── todo ── */
+.todo{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.todo li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+  padding:12px 2px;border-bottom:1px solid var(--rule)}
+.box{width:15px;height:15px;border:1.5px solid var(--shu);border-radius:2px;
+  display:inline-block;transform:translateY(2px)}
+.todo b{display:block}
+.todo small{color:var(--ink-soft);font-size:.84rem;line-height:1.55}
+
+.tips{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.tips li{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;
+  background:var(--surface-2);padding:13px 15px;font-size:.89rem;line-height:1.6}
+.tips b{display:block;margin-bottom:1px}
+.tips .ico{width:26px;height:26px;transform:translateY(2px)}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  text-align:center;color:var(--ink-faint);font-size:.8rem;line-height:1.7}
+
+@media (max-width:560px){
+  .facts{grid-template-columns:1fr 1fr}
+  .facts .fact:last-child{grid-column:1 / -1}
+  .choices{grid-template-columns:1fr}
+  .row{grid-template-columns:70px 1fr;gap:10px}
+  .stamp{width:44px;height:44px;font-size:1.35rem}
+  ul.plan li{grid-template-columns:32px 1fr;gap:11px}
+  .ico{width:32px;height:32px}
+}
+</style>
+
+<svg class="sprite" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-plane" viewBox="0 0 32 32"><path d="M29 5L4 16l8.5 3.2L16 28l4-8 9-15z"/><path d="M12.5 19.2L20 12"/></symbol>
+  <symbol id="i-car" viewBox="0 0 32 32"><path d="M4 21v-4l3-7h18l3 7v4"/><path d="M4 21h24"/><circle cx="10" cy="22.5" r="2.6"/><circle cx="22" cy="22.5" r="2.6"/></symbol>
+  <symbol id="i-steak" viewBox="0 0 32 32"><ellipse cx="16" cy="18" rx="12" ry="7.5"/><path d="M8.5 17.5c1.5-3.5 5-5.5 8.5-4.5s5.5 4 5.8 6.5"/><path d="M6 24.5h20"/></symbol>
+  <symbol id="i-burger" viewBox="0 0 32 32"><path d="M4.5 13.5C4.5 9 9.6 5.5 16 5.5s11.5 3.5 11.5 8"/><path d="M4.5 15.5h23"/><path d="M5 19c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0 3 1.2 4 .4"/><path d="M4.5 22.5h23c0 2.8-2.2 4-5 4H9.5c-2.8 0-5-1.2-5-4z"/></symbol>
+  <symbol id="i-sushi" viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="11" ry="4.5"/><path d="M5 22v-1.5"/><path d="M6.5 18.5C8 14 11.6 11 16 11s8 3 9.5 7.5"/><path d="M12 12.6l1.6 6.4M20 12.6l-1.6 6.4"/></symbol>
+  <symbol id="i-donburi" viewBox="0 0 32 32"><path d="M3.5 15.5h25c0 6.6-5.6 11-12.5 11S3.5 22.1 3.5 15.5z"/><path d="M2 15.5h28"/><path d="M9 11.5l7-4.5M13.5 12l7-4.5"/></symbol>
+  <symbol id="i-hotpot" viewBox="0 0 32 32"><path d="M5 16.5h22c0 6-4.4 9.5-11 9.5S5 22.5 5 16.5z"/><path d="M3 16.5h26"/><path d="M5 20H3M27 20h2"/><path d="M12 6c0 2.4 2 2.4 2 4.8M19 5c0 2.4 2 2.4 2 4.8"/></symbol>
+  <symbol id="i-yakiniku" viewBox="0 0 32 32"><rect x="4.5" y="15" width="23" height="10" rx="2"/><path d="M10 15v10M16 15v10M22 15v10"/><path d="M11 5c0 2.4 2 2.4 2 4.8M19 4c0 2.4 2 2.4 2 4.8"/></symbol>
+  <symbol id="i-lobster" viewBox="0 0 32 32"><ellipse cx="16" cy="18.5" rx="4.5" ry="8.5"/><path d="M16 10V6M13.5 6.5L16 4l2.5 2.5"/><path d="M11.5 12.5C8 10.5 5.5 11.5 4.5 14M20.5 12.5c3.5-2 6-1 7 1.5"/><path d="M11.5 18H7M20.5 18H25M12 23l-3.5 3.5M20 23l3.5 3.5"/></symbol>
+  <symbol id="i-ryukyu" viewBox="0 0 32 32"><rect x="3.5" y="22.5" width="25" height="4.5" rx="1.2"/><path d="M8.5 22.5c0-5 3.4-8.5 7.5-8.5s7.5 3.5 7.5 8.5"/><path d="M16 14v-2.5"/><circle cx="16" cy="9.5" r="1.8"/></symbol>
+  <symbol id="i-ramen" viewBox="0 0 32 32"><path d="M4 16h24c0 6.6-5.4 10.5-12 10.5S4 22.6 4 16z"/><path d="M2.5 16h27"/><path d="M7.5 12.5c2-2.2 4-2.2 6 0s4 2.2 6 0 4-2.2 6 0"/><path d="M20 8l7-2.5"/></symbol>
+  <symbol id="i-whale" viewBox="0 0 32 32"><path d="M2.5 17c4-6.5 11-9 17-6.5 3.5 1.5 6.5 4 8.5 6.5-2 2.5-5 5-8.5 6.5-6 2.5-13 0-17-6.5z"/><circle class="fill" cx="21" cy="14.5" r="1.2"/><path d="M12 22.5l1.5 4M18 24l1 3.5"/></symbol>
+  <symbol id="i-tower" viewBox="0 0 32 32"><path d="M16 26.5V9"/><path d="M9.5 15L16 8.5 22.5 15"/><rect x="11" y="15" width="10" height="7.5" rx="1"/><path d="M11 26.5h10"/><path d="M2.5 26.5c3-2 5-2 8 0M21.5 26.5c3-2 5-2 8 0"/></symbol>
+  <symbol id="i-sakura" viewBox="0 0 32 32"><circle class="fill" cx="16" cy="8.6" r="4.2"/><circle class="fill" cx="23.4" cy="13.9" r="4.2"/><circle class="fill" cx="20.6" cy="22.6" r="4.2"/><circle class="fill" cx="11.4" cy="22.6" r="4.2"/><circle class="fill" cx="8.6" cy="13.9" r="4.2"/></symbol>
+  <symbol id="i-castle" viewBox="0 0 32 32"><path d="M3 13.5L16 6l13 7.5"/><path d="M6 13.5v13h20v-13"/><path d="M4.5 19.5h23"/><path d="M13 26.5v-5h6v5"/></symbol>
+  <symbol id="i-cave" viewBox="0 0 32 32"><path d="M3 5h26v3c-2.2 0-2 6.5-4.2 6.5S22.6 9 20.4 9s-2 8-4.4 8-2-6-4.2-6S9.6 16 7.4 16 5.2 8 3 8V5z"/><path d="M8 27c2-3.5 4-3.5 6 0M18 27c2-4.5 4-4.5 6 0"/></symbol>
+  <symbol id="i-torii" viewBox="0 0 32 32"><path d="M3.5 8h25M6 12.5h20M9.5 8v19M22.5 8v19"/><path d="M3.5 8c1.5-1.6 3-2.4 5-2.4h15c2 0 3.5.8 5 2.4"/></symbol>
+  <symbol id="i-ferris" viewBox="0 0 32 32"><circle cx="16" cy="14" r="10"/><path d="M16 4v20M6 14h20M9 7l14 14M23 7L9 21"/><circle cx="16" cy="14" r="2.5"/><path d="M12 28.5l4-7 4 7z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 32 32"><path d="M5.5 10.5h21l-2 17H7.5l-2-17z"/><path d="M11 10.5V8a5 5 0 0110 0v2.5"/></symbol>
+  <symbol id="i-hotel" viewBox="0 0 32 32"><path d="M4 27V9l12-4 12 4v18"/><path d="M2 27h28"/><rect x="10" y="12" width="5" height="5"/><rect x="17" y="12" width="5" height="5"/><path d="M13 27v-6h6v6"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 32 32"><path d="M2.5 5.5H7l3.6 14.5h14L28 9H8.2"/><circle cx="12" cy="26" r="2.2"/><circle cx="23" cy="26" r="2.2"/></symbol>
+  <symbol id="i-cat" viewBox="0 0 32 32"><path d="M8 15.5L5.5 7l6.5 3.4M24 15.5L26.5 7 20 10.4"/><path d="M5.5 19c0-6.2 4.7-10.5 10.5-10.5S26.5 12.8 26.5 19 21.8 28 16 28 5.5 25.2 5.5 19z"/><circle class="fill" cx="12" cy="18" r="1.3"/><circle class="fill" cx="20" cy="18" r="1.3"/><path d="M16 21v1.5M13 24c1.5 1.4 4.5 1.4 6 0"/></symbol>
+  <symbol id="i-jacket" viewBox="0 0 32 32"><path d="M11 5l5 3 5-3 6 4-2 6-2-1v13H9V14l-2 1-2-6z"/><path d="M16 8v20"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 32 32"><rect x="3" y="8" width="26" height="16" rx="2"/><circle cx="16" cy="16" r="4"/><path d="M8 12v8M24 12v8"/></symbol>
+  <symbol id="i-pork" viewBox="0 0 32 32"><path d="M6 14.5C6 10 10.5 7 16 7s10 3 10 7.5-4.5 9.5-10 9.5S6 19 6 14.5z"/><ellipse cx="16" cy="16.5" rx="3.5" ry="2.6"/><path d="M8 9L6 4l5 2.5M24 9l2-5-5 2.5"/><path d="M4 26l24-20"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 32 32"><path d="M7 3.5h13l6 6v19H7z"/><path d="M20 3.5v6h6"/><path d="M11 16h10M11 21h10"/></symbol>
+</defs></svg>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="kicker">Okinawa · Lunar New Year 2027</p>
+    <h1>嫩鴨霸家族旅遊</h1>
+    <p class="tagline">沖繩五日・過年自駕</p>
+    <p class="dateline">2027 / 02 / 02 (二) — 02 / 06 (六)</p>
+    <svg class="motif" viewBox="0 0 480 16" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 12 Q 20 2 40 12 T 80 12 T 120 12 T 160 12 T 200 12 T 240 12 T 280 12 T 320 12 T 360 12 T 400 12 T 440 12 T 480 12"
+            fill="none" stroke="var(--ai)" stroke-width="1.6" opacity=".55"/>
+      <circle cx="60" cy="5" r="3" fill="var(--sakura)"/><circle cx="180" cy="5" r="3" fill="var(--ki)"/>
+      <circle cx="300" cy="5" r="3" fill="var(--shu)"/><circle cx="420" cy="5" r="3" fill="var(--sakura)"/>
+    </svg>
+    <dl class="facts">
+      <div class="fact"><dt>成員</dt><dd>7 <small>人</small></dd></div>
+      <div class="fact"><dt>天數</dt><dd>5 <small>天 4 夜</small></dd></div>
+      <div class="fact"><dt>交通</dt><dd>2 <small>台租車自駕</small></dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <h2>沖繩本島地圖</h2>
+    <p class="sub">我們會去的地方都標在上面了・顏色代表區域，🏨 是兩晚住宿</p>
+    <div class="mapwrap">
+      <svg viewBox="0 0 520 492" role="img" aria-label="沖繩本島地圖，標出古宇利島、美麗海水族館、今歸仁城跡、許田、恩納村、美國村、來客夢、那霸、首里城、玉泉洞、瀨長島與那霸機場">
+        <rect class="sea" x="0" y="0" width="520" height="492"/>
+
+        <!-- compass -->
+        <g transform="translate(478,34)">
+          <path d="M0 -14L5 4L0 0L-5 4Z" fill="var(--ink-faint)"/>
+          <text class="map-n" x="0" y="20" text-anchor="middle">北</text>
+        </g>
+
+        <!-- 沖繩本島 -->
+        <path class="land" d="M396 42 L420 64 L380 120 L368 155 L320 200 L296 224 L260 250 L238 267
+          L210 283 L220 310 L224 331 L192 360 L186 373 L172 400 L166 421 L189 413 L176 440 L162 448
+          L118 467 L109 437 L99 405 L114 389 L128 368 L147 347 L152 336 L140 300 L133 272 L158 255
+          L190 240 L224 213 L248 197 L230 185 L205 140 L206 120 L240 118 L270 125 L285 148 L330 133
+          L358 80 Z"/>
+        <!-- 古宇利島 -->
+        <circle class="land" cx="281" cy="112" r="8"/>
+        <!-- 瀨長島 -->
+        <circle class="land" cx="88" cy="414" r="5"/>
+
+        <!-- region labels -->
+        <text class="map-r" x="352" y="176" fill="var(--ai)">北部</text>
+        <text class="map-r" x="262" y="300" fill="var(--ki)">中部</text>
+        <text class="map-r" x="212" y="452" fill="var(--shu)">南部</text>
+
+        <!-- leader lines -->
+        <g class="lead">
+          <path d="M186 104 L272 116"/>
+          <path d="M186 140 L207 137"/>
+          <path d="M186 176 L232 146"/>
+          <path d="M186 212 L266 213"/>
+          <path d="M186 248 L194 241"/>
+          <path d="M98 386 L110 390"/>
+          <path d="M96 458 L100 420"/>
+          <path d="M226 320 L163 337"/>
+          <path d="M226 356 L177 347"/>
+          <path d="M226 392 L143 391"/>
+          <path d="M226 428 L158 432"/>
+        </g>
+
+        <!-- 北部 pins -->
+        <g fill="var(--ai)" class="pin">
+          <circle cx="281" cy="112" r="5.5"/>
+          <circle cx="207" cy="137" r="5.5"/>
+          <circle cx="232" cy="146" r="5.5"/>
+          <circle cx="266" cy="213" r="5.5"/>
+        </g>
+        <!-- 中部 pins -->
+        <g fill="var(--ki)" class="pin">
+          <circle cx="163" cy="337" r="5.5"/>
+          <circle cx="177" cy="347" r="5.5"/>
+        </g>
+        <circle cx="194" cy="241" r="6.5" fill="none" stroke="var(--ki)" class="pin-h"/>
+        <!-- 南部 pins -->
+        <g fill="var(--shu)" class="pin">
+          <circle cx="143" cy="391" r="5.5"/>
+          <circle cx="158" cy="432" r="5.5"/>
+          <circle cx="88" cy="414" r="4.5"/>
+          <circle cx="103" cy="401" r="5.5"/>
+        </g>
+        <circle cx="110" cy="390" r="6.5" fill="none" stroke="var(--shu)" class="pin-h"/>
+
+        <!-- 北部 labels (right-aligned, left of island) -->
+        <text class="map-t" x="180" y="101" text-anchor="end">古宇利島・海洋塔</text>
+        <text class="map-d" x="180" y="113" text-anchor="end">Day 2 ・ 果凍海與跨海大橋</text>
+        <text class="map-t" x="180" y="137" text-anchor="end">美麗海水族館</text>
+        <text class="map-d" x="180" y="149" text-anchor="end">Day 2 ・ 黑潮之海鯨鯊餵食秀</text>
+        <text class="map-t" x="180" y="173" text-anchor="end">今歸仁城跡・八重岳</text>
+        <text class="map-d" x="180" y="185" text-anchor="end">Day 2 ・ 2 月限定緋寒櫻</text>
+        <text class="map-t" x="180" y="209" text-anchor="end">許田休息站・名護</text>
+        <text class="map-d" x="180" y="221" text-anchor="end">Day 2 ・ 買水族館優惠票</text>
+        <text class="map-t" x="180" y="245" text-anchor="end">🏨 恩納村・星野 BEB5</text>
+        <text class="map-d" x="180" y="257" text-anchor="end">Day 1–2 住這裡</text>
+
+        <!-- 那霸 labels (left of island, south) -->
+        <text class="map-t" x="92" y="383" text-anchor="end">🏨 那霸・松山民宿</text>
+        <text class="map-d" x="92" y="395" text-anchor="end">Day 3–4 住這裡</text>
+        <text class="map-t" x="8" y="455">那霸機場・瀨長島</text>
+        <text class="map-d" x="8" y="467">Day 1 抵達 ・ Day 5 離開</text>
+
+        <!-- 中南部 labels (left-aligned, right of island) -->
+        <text class="map-t" x="232" y="317">北谷・美國村</text>
+        <text class="map-d" x="232" y="329">Day 3 ・ 美式海濱街區・貓之道</text>
+        <text class="map-t" x="232" y="353">北中城・AEON 來客夢</text>
+        <text class="map-d" x="232" y="365">Day 3 ・ 沖繩最大商場・寶可夢中心</text>
+        <text class="map-t" x="232" y="389">首里城・西來院</text>
+        <text class="map-d" x="232" y="401">Day 4 ・ 琉球王國的王城</text>
+        <text class="map-t" x="232" y="425">南城・沖繩世界玉泉洞</text>
+        <text class="map-d" x="232" y="437">Day 4 ・ 東洋第一鐘乳石洞</text>
+      </svg>
+    </div>
+    <p class="scrollhint">手機請左右滑動看完整地圖　·　島形為簡化示意，位置依實際經緯度標示</p>
+  </section>
+
+  <section>
+    <h2>航班</h2>
+    <p class="sub">高雄 6 人 ＋ 大姊自大阪飛來會合</p>
+    <div class="rows">
+      <div class="row"><span class="lab">2/2 去程</span>
+        <p class="val"><b>高雄 12:00 → 那霸 14:40</b><em>6 人・國際線航廈</em></p></div>
+      <div class="row"><span class="lab">2/2 去程</span>
+        <p class="val"><b>大阪關西 11:35 → 那霸 14:05</b><em>大姊・樂桃 MM219・國內線航廈</em></p></div>
+      <div class="row"><span class="lab">2/6 回程</span>
+        <p class="val"><b>那霸 12:20 → 大阪關西 14:15</b><em>大姊・樂桃 MM212</em></p></div>
+      <div class="row"><span class="lab">2/6 回程</span>
+        <p class="val"><b>那霸 15:40 → 高雄 16:30</b><em>6 人・16:30 是台灣時間，可以請人來接機</em></p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>住宿 ＆ 費用</h2>
+    <div class="rows">
+      <div class="row"><span class="lab">Day 1–2</span>
+        <p class="val"><b>星野 BEB5 沖繩瀬良垣</b><em>中部・恩納村度假飯店</em></p></div>
+      <div class="row"><span class="lab">Day 3–4</span>
+        <p class="val"><b>那覇の宿 休日</b><em>那霸市松山・獨棟包棟民宿，走路 8~12 分到國際通</em></p></div>
+      <div class="row"><span class="lab">機票</span>
+        <p class="val"><b>各自出錢</b><em>不列入均分</em></p></div>
+      <div class="row"><span class="lab">住宿</span>
+        <p class="val"><b class="num">NT$ 47,303</b><em>Day 1–2 NT$22,339 ＋ Day 3–4 NT$24,964</em></p></div>
+      <div class="row"><span class="lab">每人</span>
+        <p class="val"><b class="num hi">約 NT$ 6,758</b><em>住宿 ÷ 7 人</em></p></div>
+    </div>
+    <div class="note">租車、油錢、過路費、共食餐費另外算，建議先收一筆公費，回國後多退少補。</div>
+  </section>
+
+  <section>
+    <h2>每天做什麼</h2>
+    <p class="sub">時間抓大概，當天視狀況彈性調整</p>
+
+    <!-- DAY 1 -->
+    <article class="day">
+      <div class="dayhead">
+        <div class="stamp">1</div>
+        <div class="daymeta"><h3>抵達沖繩 → 恩納村</h3><p class="when">2/2 TUE</p></div>
+      </div>
+      <div class="route">
+        <span class="stop key">那霸機場</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">取車</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">恩納村晚餐</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">超市</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">星野 BEB5</span>
+      </div>
+      <ul class="plan">
+        <li><span class="ico ico--ai"><svg><use href="#i-plane"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">14:05</span>大姊自大阪抵達</p>
+          <p class="about">先在國內線 2 樓名產大廳等大家。14:40 高雄 6 人抵達國際線，走 2 樓連通道會合，約 3~5 分鐘。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-donburi"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">15:30</span>機場點心：Potama 豬肉蛋飯糰</p>
+          <p class="cuisine">沖繩經典飯糰・帶上車吃</p>
+          <p class="about">那霸機場國內線的人氣飯糰，厚切午餐肉配煎蛋。<b>看人潮決定</b>——要排隊就改買便利商店飯糰，帶著在車上吃，晚餐才吃得下。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-car"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">16:00</span>取車（2 台）→ 開往恩納村</p></div></li>
+        <li><span class="ico"><svg><use href="#i-steak"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">18:30</span>晚餐：Emerald</p>
+          <p class="cuisine">美式鐵板牛排・洋食</p>
+          <p class="about">當地人愛去的餐廳。若沒開或 7 人坐不下 → 改去 Steakhouse 88 恩納店，免預約、份量豪邁、離飯店很近。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-cart"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">20:30</span>超市採買</p>
+          <p class="about">買日本當季草莓、水果、飲料當消夜。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-hotel"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">21:45</span>入住 星野 BEB5 沖繩瀬良垣</p>
+          <p class="about">星野集團的度假飯店，就在恩納村海邊，泡個澡早點休息。</p></div></li>
+      </ul>
+    </article>
+
+    <!-- DAY 2 -->
+    <article class="day">
+      <div class="dayhead">
+        <div class="stamp">2</div>
+        <div class="daymeta"><h3>北部一日遊・美麗海水族館</h3><p class="when">2/3 WED</p></div>
+      </div>
+      <div class="route">
+        <span class="stop key">BEB5</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">許田休息站</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">賞櫻</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">古宇利島</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">美麗海水族館</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">大家 晚餐</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">BEB5</span>
+      </div>
+      <ul class="plan">
+        <li><span class="ico ico--ki"><svg><use href="#i-cart"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">09:15</span>許田休息站</p>
+          <p class="about">沖繩最有名的公路休息站，可以買到<b>比原價便宜的美麗海水族館門票</b>，還有百元炸天婦羅和開口笑當點心。（07:30 先在飯店吃早餐，08:45 出發）</p></div></li>
+        <li><span class="ico ico--sakura"><svg><use href="#i-sakura"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">10:30</span>賞櫻：今歸仁城跡 或 八重岳</p>
+          <p class="about">沖繩的<b>緋寒櫻是日本最早開的櫻花</b>，只有 1 月底到 2 月初看得到，桃紅色、垂著開，跟台灣看到的櫻花不太一樣。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-donburi"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">12:00</span>午餐：古宇利島</p>
+          <p class="cuisine">海膽丼・海鮮丼・生魚片</p>
+          <p class="about">三選一：<b>錦屋</b>（最推薦，年中無休、二樓露台看古宇利大橋）／<b>しらさ食堂</b>（名氣最大）／<b>Airando</b>（亞洲唯一斐濟料理，椰奶南洋風海鮮）。順路買 1 份蝦蝦飯大家分著嚐鮮，排超過 20 分鐘就放棄。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-tower"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">13:30</span>古宇利海洋塔</p>
+          <p class="about">搭無人駕駛的高爾夫球車輕鬆上塔，居高臨下看<b>古宇利大橋和清澈的「果凍海」</b>，不用走什麼路。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-whale"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">15:30</span>沖繩美麗海水族館</p>
+          <p class="about">世界級的大水族館，招牌是巨型水槽「<b>黑潮之海</b>」，養著好幾隻鯨鯊。<b>17:00 有餵食秀</b>，鯨鯊會直立起身體進食，非常震撼。下午進場人比較少。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-hotpot"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">18:45</span>晚餐：百年古家 大家（Ufuya）</p>
+          <p class="cuisine">阿古豬涮涮鍋・沖繩料理</p>
+          <p class="about">在<b>百年古宅</b>裡吃沖繩名產「阿古豬」涮涮鍋，肉質細嫩不油膩，環境古色古香，長輩最喜歡這種。<b>需要提前預約</b>。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-cart"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">20:15</span>累了就直接回飯店</p>
+          <p class="about">還有精神的話再去超市或百貨逛一下，21:00~22:00 回到飯店。</p></div></li>
+      </ul>
+      <div class="note"><b>今天最長最累</b>，早上 8:45 出門、又走了水族館和海洋塔，晚上不用硬撐逛街，後面還有很多購物機會。</div>
+    </article>
+
+    <!-- DAY 3 -->
+    <article class="day">
+      <div class="dayhead">
+        <div class="stamp">3</div>
+        <div class="daymeta"><h3>美國村 → 來客夢購物 → 那霸</h3><p class="when">2/4 THU</p></div>
+      </div>
+      <div class="route">
+        <span class="stop key">BEB5 退房</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">美國村</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">A&amp;W ＋ 迴轉壽司</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">AEON 來客夢</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">燒肉晚餐</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">那霸民宿</span>
+      </div>
+      <ul class="plan">
+        <li><span class="ico ico--ai"><svg><use href="#i-car"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">09:30</span>睡飽再退房，開往北谷</p>
+          <p class="about">今天不趕。08:30 在房間簡單吃早餐（前一晚超市先買好），09:30 退房，車程約 50 分。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-burger"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">10:20</span>A&amp;W 美浜店</p>
+          <p class="cuisine">美式漢堡・麥根沙士</p>
+          <p class="about">沖繩獨有的美式速食老店（日本本土幾乎沒有）。招牌是<b>可以無限續杯的麥根沙士</b>和捲捲薯條。<b>只買 1~2 份大家分著嚐鮮就好</b>，肚子留給壽司。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-sushi"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">11:00</span>午餐：グルメ回転寿司市場</p>
+          <p class="cuisine">迴轉壽司・沖繩近海魚</p>
+          <p class="about">美國村的人氣迴轉壽司，除了常見的壽司還有沖繩近海魚和海葡萄。<b>一定要 11:00 開店就進去</b>，12 點到要排大約 60 分鐘。</p></div></li>
+        <li><span class="ico ico--sakura"><svg><use href="#i-cat"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">12:15</span>美國村散步・貓之道</p>
+          <p class="about">美軍基地旁邊發展出來的<b>美式海濱街區</b>，有摩天輪、彩繪牆、海邊木棧道。隱藏版的「貓之道」是一條有很多貓咪出沒的小徑，很好拍。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-bag"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">13:35</span>AEON 來客夢</p>
+          <p class="about"><b>沖繩最大的購物中心</b>。先直奔<b>寶可夢中心</b>（沖繩唯一一間官方店，有沖繩限定商品），再慢慢逛其他樓層。1 樓有巨型大水族箱可以免費看，全館冷氣、座椅多，長輩走累隨時可以坐。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-yakiniku"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">17:30</span>晚餐：焼肉なべしま</p>
+          <p class="cuisine">日式燒肉・有吃到飽</p>
+          <p class="about">鹿兒島發源的燒肉專門店，<b>就在來客夢 5 樓</b>，逛完直接搭電梯上去，走路 0 分鐘。有吃到飽方案，7 個人預算好抓。<b>需要訂位</b>。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-hotel"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">19:45</span>入住 那覇の宿 休日</p>
+          <p class="about">那霸市松山的<b>獨棟包棟民宿</b>，整棟只有我們，走路 8~12 分鐘就到國際通。</p></div></li>
+      </ul>
+    </article>
+
+    <!-- DAY 4 -->
+    <article class="day day--eve">
+      <div class="dayhead">
+        <div class="stamp">4</div>
+        <div class="daymeta"><h3>首里城・玉泉洞・年夜飯<span class="tag">除夕</span></h3><p class="when">2/5 FRI</p></div>
+      </div>
+      <div class="route">
+        <span class="stop key">民宿</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">首里城</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">西來院</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">玉泉洞</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">瀨長島</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">國際通</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">🧧 四つ竹 年夜飯</span>
+      </div>
+      <ul class="plan">
+        <li><span class="ico"><svg><use href="#i-castle"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">09:20</span>首里城公園</p>
+          <p class="about">琉球王國五百年的王城，紅瓦朱牆，是沖繩的象徵。2019 年火災燒毀後重建，<b>2026 年底正殿才全新完工</b>，我們去剛好看得到新的。園區有無障礙電梯和木棧坡道。</p></div></li>
+        <li><span class="ico ico--shu"><svg><use href="#i-torii"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">10:45</span>西來院（首里達摩寺）</p>
+          <p class="about">首里城旁順路的小寺，供滿了紅色不倒翁（達摩），還有迷你千本鳥居，<b>祈求全家平安健康</b>。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-cave"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">12:00</span>沖繩世界 ＋ 玉泉洞</p>
+          <p class="about"><b>東洋第一的鐘乳石洞</b>，開放參觀的部分有 890 公尺，洞內滿是幾十萬年形成的鐘乳石。地面上的「王國村」有古民家、傳統工藝，還有震撼的<b>超級太鼓舞秀</b>。園區內可以吃午餐。<b>洞內有階梯、地面濕滑</b>，長輩覺得吃力可以只逛外面的王國村。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-plane"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">15:00</span>瀨長島 Umikaji Terrace</p>
+          <p class="about">海邊山丘上一整片<b>純白色的地中海風建築</b>，就在那霸機場旁邊，可以近距離看飛機起降。想多逛街的話這站可以跳過。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-bag"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">16:20</span>國際通逛街</p>
+          <p class="about">那霸最熱鬧的商店街，<b>從民宿走路 8~12 分鐘就到</b>，車停民宿不用再動。伴手禮、藥妝、沖繩小物都在這裡。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-ryukyu"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">18:00</span><span class="hi">年夜飯：四つ竹 久米店</span></p>
+          <p class="cuisine">琉球宮廷料理・套餐</p>
+          <p class="about">正統的琉球宮廷料理，<b>2 樓個室</b>最多 12 人，我們 7 個剛好包一間，還有仿沖繩海景的石庭。<b>19:00 有琉球舞踊表演</b>，18:00 開吃剛好趕上。從民宿走路只要 8~10 分鐘。吃完 20:00 繼續逛國際通和唐吉訶德。</p></div></li>
+      </ul>
+    </article>
+
+    <!-- DAY 5 -->
+    <article class="day">
+      <div class="dayhead">
+        <div class="stamp">5</div>
+        <div class="daymeta"><h3>神社祈福 → 還車 → 回台灣<span class="tag tag--ki">初一</span></h3><p class="when">2/6 SAT</p></div>
+      </div>
+      <div class="route">
+        <span class="stop key">民宿退房</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">波上宮</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">沖宮</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">送大姊搭機</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">拉麵</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop">還車</span><span class="arw"><svg viewBox="0 0 15 9"><path d="M0 4.5h12M9 1l3.5 3.5L9 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="stop key">那霸機場</span>
+      </div>
+      <ul class="plan">
+        <li><span class="ico ico--shu"><svg><use href="#i-torii"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">09:00</span>波上宮</p>
+          <p class="about">沖繩<b>蓋在海邊懸崖上的神社</b>，是琉球八社之首，可以俯瞰海景，很多人來買保佑交通平安和健康的御守。（08:30 先退房，行李全上車）</p></div></li>
+        <li><span class="ico ico--shu"><svg><use href="#i-torii"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">10:00</span>沖宮</p>
+          <p class="about">同樣是琉球八社之一，位在奧武山公園裡面，四周樹林環繞、環境安靜，地很平好走。</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-plane"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">10:45</span>送大姊到機場國內線</p>
+          <p class="about">她 12:20 的班機回大阪，比我們早 3 個多小時。<b>全家合照記得在這之前拍</b>。</p></div></li>
+        <li><span class="ico"><svg><use href="#i-ramen"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">11:10</span>午餐：琉球新麵 通堂 小禄本店</p>
+          <p class="cuisine">拉麵・豚骨與鹽味</p>
+          <p class="about">沖繩超人氣拉麵店，招牌是「<b>男味</b>」濃厚豚骨和「<b>女味</b>」清爽鹽味，長輩推薦點女味比較不油膩。離機場只有 2 公里，11:00 開店第一批進去不用排。</p></div></li>
+        <li><span class="ico ico--ki"><svg><use href="#i-cart"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">12:05</span>AEON 那霸店最後補貨</p></div></li>
+        <li><span class="ico ico--ai"><svg><use href="#i-car"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">12:45</span>還車 → 13:30 機場報到</p></div></li>
+        <li><span class="ico"><svg><use href="#i-plane"/></svg></span>
+          <div class="d"><p class="hd"><span class="t">15:40</span><span class="hi">起飛 → 16:30 抵達高雄</span></p></div></li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>除夕年夜飯</h2>
+    <p class="sub">2/5（除夕）晚上 18:00 開吃 — 已決定吃琉球料理</p>
+    <div class="choices">
+      <div class="choice">
+        <div class="chd"><span class="ico ico--ki"><svg><use href="#i-ryukyu"/></svg></span>
+          <div><p class="who">已定案</p><h4>四つ竹 久米店</h4></div></div>
+        <ul>
+          <li>正統<b>琉球宮廷料理</b>套餐，¥6,600 起，預算明確</li>
+          <li>2 樓個室最多 12 人 — <b>我們 7 個剛好包一間</b>，有仿沖繩海景的石庭</li>
+          <li>19:00 有<b>琉球舞踊表演</b>，18:00 開吃剛好趕上</li>
+          <li>「久米」是松山隔壁的町名 — <b>民宿走路只要 8~10 分</b></li>
+          <li>⚠️ <b>一定要訂位</b>（7 人個室，越早越好）</li>
+        </ul>
+      </div>
+      <div class="choice">
+        <div class="chd"><span class="ico"><svg><use href="#i-lobster"/></svg></span>
+          <div><p class="who">備案</p><h4>第一牧志公設市場</h4></div></div>
+        <ul>
+          <li>一樓自己挑<b>活龍蝦、夜光貝、石斑魚</b>，二樓請師傅代客熱炒</li>
+          <li>市場熱鬧，自己挑食材很有趣</li>
+          <li>民宿走路 15~18 分／計程車 5 分</li>
+          <li>價格看挑什麼，比較難抓預算</li>
+          <li>⚠️ 公休含「舊正月」，2/5 可能有攤商提早休市</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><b>飯後動線</b>：四つ竹在久米，走到國際通約 10 分鐘，接著逛國際通與唐吉訶德，最後散步回民宿，全程不用開車。</div>
+  </section>
+
+  <section>
+    <h2>出發前還沒辦的事</h2>
+    <ul class="todo">
+      <li><span class="box"></span><div><b>駕照日文譯本 — 最急！</b><small>沒有譯本，租車公司不會把車交給你。監理站當場就辦得好、100 元、帶駕照＋身分證。<b>所有要開車的人都要各辦一份</b>，效期 1 年。</small></div></li>
+      <li><span class="box"></span><div><b>租車 2 台</b><small>過年是旺季，要盡快訂。現場記得加保免責補償（CDW＋NOC），每位要開車的人都要登記在契約上。</small></div></li>
+      <li><span class="box"></span><div><b>旅遊平安險</b><small>跟威豪保險員買。一定要含「海外突發疾病醫療」，並主動告知是租車自駕。</small></div></li>
+      <li><span class="box"></span><div><b>eSIM 網路卡（6 人份）</b><small>大姊在日本有門號不用買。<b>要在台灣連 Wi-Fi 時先裝好</b>，落地後沒網路就掃不了 QR Code。</small></div></li>
+      <li><span class="box"></span><div><b>餐廳訂位</b><small>Day 2 百年古家 大家、Day 3 來客夢燒肉、<b>Day 4 除夕 四つ竹 久米店（7 人 2F 個室）</b>。</small></div></li>
+      <li><span class="box"></span><div><b>跟民宿確認</b><small>19:45 才會到、鑰匙怎麼拿、能不能停 2 台車。</small></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>幾個小提醒</h2>
+    <ul class="tips">
+      <li><span class="ico ico--ai"><svg><use href="#i-jacket"/></svg></span>
+        <div><b>沖繩 2 月不是短袖天氣</b>約 14~20°C，海邊風大又常下雨，要帶防風外套，長輩記得帽子圍巾。</div></li>
+      <li><span class="ico ico--ki"><svg><use href="#i-cash"/></svg></span>
+        <div><b>現金要帶夠</b>牧志市場、許田休息站、小攤子多半只收現金。過年前銀行人多，日幣要提早換好。</div></li>
+      <li><span class="ico"><svg><use href="#i-pork"/></svg></span>
+        <div><b>豬肉製品不能帶回台灣</b>沖繩很多伴手禮是豬肉做的（阿古豬加工品、豬肉罐頭、滷肉），會被沒入。紅芋塔、金楚糕、黑糖、泡盛都沒問題。</div></li>
+      <li><span class="ico ico--ai"><svg><use href="#i-doc"/></svg></span>
+        <div><b>Visit Japan Web</b>高雄出發的 6 人要填，出發前 3~7 天完成。大姊搭國內線不用填。</div></li>
+    </ul>
+  </section>
+
+  <footer>
+    嫩鴨霸家族旅遊 · 2027 沖繩<br>
+    行程仍可調整，有想去的地方隨時提出<br>
+    餐廳營業時間與價格請以出發前實際查詢為準
+  </footer>
+
+</div>
+</body>
+</html>
